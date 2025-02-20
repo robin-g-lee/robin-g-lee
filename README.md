@@ -3,14 +3,11 @@
 Some projects from UCLA and UCSB.
 
 ## Machine Learning
-<details>
-<summary>Model Summaries</summary>
-<br>
-  
+
+
 ![68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f313630302f312a5a43654f4542687645564c6d774368377672325256412e706e67](https://github.com/user-attachments/assets/862dd4e0-0abb-4bd2-bd35-793c421e6ca3)
   
 ![image](https://github.com/user-attachments/assets/60b58690-3c37-4cdc-8fc1-6de7d2f4716f)
-</details>
 
 <details>
 <summary>K-Means</summary>
@@ -49,14 +46,82 @@ while error != 0: # Loop will run till the error becomes zero
 
 </details>
 
-## Time Series
+
 <details>
-<summary>Model Summaries</summary>
+<summary>Random Forest</summary>
 <br>
+  
+![image](https://github.com/user-attachments/assets/c86b06bf-da91-4fd5-a5e3-11c0fb6bde2e)
+
+```
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import RandomizedSearchCV
+from scipy.stats import randint
+param_dist = {
+    'n_estimators': randint(100, 1000),
+    'max_depth': randint(1, 20),
+    'min_samples_split': randint(2, 20),
+    'min_samples_leaf': randint(1, 20),
+    'max_features': ['auto', 'sqrt', 'log2', None],
+    'criterion': ['absolute_error', 'poisson', 'friedman_mse', 'squared_error'],
+    'bootstrap': [True, False]
+}
+random_search = RandomizedSearchCV(
+    RandomForestRegressor(),
+    param_distributions=param_dist,
+    n_iter=100,
+    cv=5,
+    verbose=1,
+    random_state=42,
+    n_jobs=-1
+)
+random_search.fit(train_X, train_y)
+print("Best hyperparameters found: ", random_search.best_params_)
+
+from sklearn.ensemble import RandomForestRegressor
+rf = RandomForestRegressor(n_estimators=100, max_depth=20,
+                                      min_samples_leaf=10,
+                                      min_samples_split=5, random_state=42)
+rf.fit(train_X,train_y)
+
+from sklearn.metrics import mean_squared_error as MSE
+y_pred = rf.predict(test_X)
+y_pred_train=rf.predict(train_X)
+# Evaluate the test set RMSE
+rmse_test = MSE(test_y, y_pred)**(1/2)
+rmse_train = MSE(train_y, y_pred_train)**(1/2)
+# Print the test set RMSE
+print('Test set RMSE of rf: {:.3f}'.format(rmse_test))
+print('Train set RMSE of rf: {:.3f}'.format(rmse_train))
+
+from sklearn.model_selection import cross_val_score
+# Compute the array containing the 10-folds CV MSEs
+MSE_CV_scores = - cross_val_score(rf, train_X, train_y, cv=10, 
+                                  scoring='neg_mean_squared_error', 
+                                  n_jobs=-1) 
+# Compute the 10-folds CV RMSE
+RMSE_CV = (MSE_CV_scores.mean())**(1/2)
+# Print RMSE_CV
+print('CV RMSE: {:.2f}'.format(RMSE_CV))
+
+y_pred_rf = rf.predict(test_X)
+rmse_rf = np.sqrt(mean_squared_error(test_y, y_pred_rf))
+print('RMSE (Random Forest): ', rmse_rf)
+```
+
+</details>
+
+
+
+
+
+
+
+
+## Time Series
 
 ![image](https://github.com/user-attachments/assets/56b8612c-711f-4224-a9db-847996f5e3c4)
 
-</details>
 
 <details>
 <summary>GARCH Models</summary>
