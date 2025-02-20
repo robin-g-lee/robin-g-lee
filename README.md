@@ -17,6 +17,8 @@ You can click the Preview link to take a look at your changes.
 
 ![The-Telescope-automated-time-series-forecasting-workflow](https://github.com/user-attachments/assets/a13316b2-7101-40bf-bdc0-603c4c03162a)
 ![image](https://github.com/user-attachments/assets/56b8612c-711f-4224-a9db-847996f5e3c4)
+![image](https://github.com/user-attachments/assets/4b9d4d2b-03bc-4685-b410-057a1c47f95c)
+
 
 
 
