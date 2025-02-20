@@ -10,7 +10,7 @@ Some projects from UCLA and UCSB.
 ![image](https://github.com/user-attachments/assets/60b58690-3c37-4cdc-8fc1-6de7d2f4716f)
 
 <details>
-<summary>K-Means</summary>
+<summary>K-Means Clustering</summary>
 <br>
 
 ![image](https://github.com/user-attachments/assets/de83aac1-a121-4423-93a4-18579cbfddb4)
