@@ -149,6 +149,10 @@ This method aims to explain the prediction of an instance/observation by computi
 
 https://shap.readthedocs.io/en/latest/example_notebooks/api_examples/plots/bar.html
 
+Supervised Clustering: How to Use SHAP Values for Better Cluster Analysis:
+
+https://www.aidancooper.co.uk/supervised-clustering-shap-values/#:~:text=Clustering%20the%202D%20Embedding%20of,we%20elect%20to%20use%20DBSCAN.&text=As%20expected%2C%20this%20identifies%20the,discerned%20visually%20(Figure%205)
+
 **LIME: Local Interpretable Model-Agnostic Explanations**
 
 Approximates a complex model and transfers it to a local interpretable model. LIME generates a perturbed dataset to fit an explainable model.
