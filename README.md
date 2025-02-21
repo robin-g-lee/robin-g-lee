@@ -141,18 +141,21 @@ print('RMSE (Random Forest): ', rmse_rf)
 <details>
 <summary>SHAP and LIME</summary>
 <br>
-
+  
+https://medium.com/cmotions/opening-the-black-box-of-machine-learning-models-shap-vs-lime-for-model-explanation-d7bf545ce15f
+  
 **SHAP: SHapley Additive exPlanations**
 
-This method aims to explain the prediction of an instance/observation by computing the contribution of each feature to the prediction.
+This method aims to explain the prediction of an instance/observation by computing the contribution of each feature to the prediction. Uses game theory to explain a model by considering each feature as a player. SHAP values are relative to the average predicted value of the sample.
 
 https://shap.readthedocs.io/en/latest/example_notebooks/api_examples/plots/bar.html
 
 **LIME: Local Interpretable Model-Agnostic Explanations**
 
+Approximates a complex model and transfers it to a local interpretable model. LIME generates a perturbed dataset to fit an explainable model.
+
 https://marcotcr.github.io/lime/tutorials/Tutorial%20-%20continuous%20and%20categorical%20features.html
 
-![image](https://github.com/user-attachments/assets/4bdf53fa-f6a0-4861-aeef-80870f56da8b)
 
 **Comparison**
 
