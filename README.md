@@ -58,13 +58,13 @@ while error != 0: # Loop will run till the error becomes zero
 
 **Ensemble Learning:**
 
-* Bagging: Bootstrap Aggregation.
+* **Bagging:** Bootstrap Aggregation.
   * Base estimator: Decision Tree, Logistic Regression, Neural Net, ...
   * Each estimator is trained on a distinct bootstrap sample of the training set
 
 ![image](https://github.com/user-attachments/assets/a348f332-7224-4ce3-8d1a-27f6ae00f35a)
 
-* Boosting: several models are trained sequentially with each model learning from the errors of its predecessors
+* **Boosting:** several models are trained sequentially with each model learning from the errors of its predecessors
   * AdaBoost and Gradient Boosting
 
 </details>
