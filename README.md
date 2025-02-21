@@ -110,7 +110,7 @@ DBSCAN's advantages:
         * i.e. decrease max depth, increase min samples per leaf, ...
         * gather more data, ..
  
-* **Diagnose Variance Problems**
+* **Diagnose Bias Problems**
 
     * If $\hat{f}$ suffers from **high bias**:
     </br><mark>CV error of $\hat{f} \approx$ training set error of $\hat{f}$ >> desired error.</mark>
