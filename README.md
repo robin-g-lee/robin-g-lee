@@ -47,7 +47,7 @@ while error != 0: # Loop will run till the error becomes zero
 </details>
 
 <details>
-<summary>Ensemble Learning</summary>
+<summary>CART and Ensemble Learning</summary>
 <br>
 
 **Classification And Regression Tree (CART)**
