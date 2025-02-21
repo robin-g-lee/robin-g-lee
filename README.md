@@ -50,7 +50,22 @@ while error != 0: # Loop will run till the error becomes zero
 <summary>Ensemble Learning</summary>
 <br>
 
+**Limitations of CARTs:**
+
+![image](https://github.com/user-attachments/assets/1a027e3e-6e19-4c0c-b4f8-0e5b9a5d74bb)
+
+![image](https://github.com/user-attachments/assets/fa891e83-d007-4516-9696-b03bc32e014e)
+
+**Ensemble Learning:**
+
+* Bagging: Bootstrap Aggregation.
+  * Base estimator: Decision Tree, Logistic Regression, Neural Net, ...
+  * Each estimator is trained on a distinct bootstrap sample of the training set
+
 ![image](https://github.com/user-attachments/assets/a348f332-7224-4ce3-8d1a-27f6ae00f35a)
+
+* Boosting: several models are trained sequentially with each model learning from the errors of its predecessors
+  * AdaBoost and Gradient Boosting
 
 </details>
 
