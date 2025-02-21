@@ -287,10 +287,10 @@ plt.title("Iris Data")
   The model’s strength comes from its additive learning process — while each tree focuses on correcting the remaining errors in the ensemble, the sequential combination creates a powerful predictor that progressively reduces the overall
   prediction error by focusing on the parts of the problem where the model still struggles.
 
-  1. Initialize Model: Start with a simple prediction, typically the mean of target values.
-  2. Iterative Learning: For a set number of iterations, compute the residuals, train a decision tree to predict these residuals, and add the new tree’s predictions (scaled by the learning rate) to the running total.
-  3. Build Trees on Residuals: Each new tree focuses on the remaining errors from all previous iterations.
-  4. Final Prediction: Sum up all tree contributions (scaled by the learning rate) and the initial prediction.
+  1. **Initialize Model:** Start with a simple prediction, typically the mean of target values.
+  2. **Iterative Learning:** For a set number of iterations, compute the residuals, train a decision tree to predict these residuals, and add the new tree’s predictions (scaled by the learning rate) to the running total.
+  3. **Build Trees on Residuals:** Each new tree focuses on the remaining errors from all previous iterations.
+  4. **Final Prediction:** Sum up all tree contributions (scaled by the learning rate) and the initial prediction.
 
   <br>
   
