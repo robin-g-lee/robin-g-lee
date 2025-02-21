@@ -201,6 +201,8 @@ https://medium.com/towards-data-science/lime-explain-machine-learning-prediction
   
 ![image](https://github.com/user-attachments/assets/4b9d4d2b-03bc-4685-b410-057a1c47f95c)
 
+https://medium.com/@corredaniel1500/forecasting-volatility-deep-dive-into-arch-garch-models-46cd1945872b
+
 </details>
 
 
