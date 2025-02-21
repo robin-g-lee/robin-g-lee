@@ -45,6 +45,7 @@ while error != 0: # Loop will run till the error becomes zero
         C[i] = np.mean(points, axis=0)
     error = dist(C, C_old, None)
 ```
+<br>
 
 </details>
 
@@ -79,71 +80,123 @@ while error != 0: # Loop will run till the error becomes zero
 * **Boosting:** several models are trained sequentially with each model learning from the errors of its predecessors
   * AdaBoost and Gradient Boosting
 
-</details>
-
-<details>
-<summary>Random Forest</summary>
 <br>
+
+* **Example:**
   
-![image](https://github.com/user-attachments/assets/c86b06bf-da91-4fd5-a5e3-11c0fb6bde2e)
+  <details>
+  <summary><strong>Random Forest</strong></summary>
+  <br>
 
-```
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import RandomizedSearchCV
-from scipy.stats import randint
-param_dist = {
-    'n_estimators': randint(100, 1000),
-    'max_depth': randint(1, 20),
-    'min_samples_split': randint(2, 20),
-    'min_samples_leaf': randint(1, 20),
-    'max_features': ['auto', 'sqrt', 'log2', None],
-    'criterion': ['absolute_error', 'poisson', 'friedman_mse', 'squared_error'],
-    'bootstrap': [True, False]
-}
-random_search = RandomizedSearchCV(
-    RandomForestRegressor(),
-    param_distributions=param_dist,
-    n_iter=100,
-    cv=5,
-    verbose=1,
-    random_state=42,
-    n_jobs=-1
-)
-random_search.fit(train_X, train_y)
-print("Best hyperparameters found: ", random_search.best_params_)
+  Why Random Forests Work: Variance reduction: the trees are more independent because of the combination of bootstrap samples and random draws of predictors.
+  It is apparent that random forests are a form of bagging, and the averaging over trees can substantially reduce instability that might otherwise result.
+  Moreover, by working with a random sample of predictors at each possible split, the fitted values across trees are more independent.
+  Consequently, the gains from averaging over a large number of trees (variance reduction) can be more dramatic.
+  Bias reduction: a very large number of predictors can be considered, and local feature predictors can play a role in tree construction.
 
-from sklearn.ensemble import RandomForestRegressor
-rf = RandomForestRegressor(n_estimators=100, max_depth=20,
-                                      min_samples_leaf=10,
-                                      min_samples_split=5, random_state=42)
-rf.fit(train_X,train_y)
+    
+  ![image](https://github.com/user-attachments/assets/c86b06bf-da91-4fd5-a5e3-11c0fb6bde2e)
+  
+  ```
+  from sklearn.ensemble import RandomForestRegressor
+  from sklearn.model_selection import RandomizedSearchCV
+  from scipy.stats import randint
+  param_dist = {
+      'n_estimators': randint(100, 1000),
+      'max_depth': randint(1, 20),
+      'min_samples_split': randint(2, 20),
+      'min_samples_leaf': randint(1, 20),
+      'max_features': ['auto', 'sqrt', 'log2', None],
+      'criterion': ['absolute_error', 'poisson', 'friedman_mse', 'squared_error'],
+      'bootstrap': [True, False]
+  }
+  random_search = RandomizedSearchCV(
+      RandomForestRegressor(),
+      param_distributions=param_dist,
+      n_iter=100,
+      cv=5,
+      verbose=1,
+      random_state=42,
+      n_jobs=-1
+  )
+  random_search.fit(train_X, train_y)
+  print("Best hyperparameters found: ", random_search.best_params_)
+  
+  from sklearn.ensemble import RandomForestRegressor
+  rf = RandomForestRegressor(n_estimators=100, max_depth=20,
+                                        min_samples_leaf=10,
+                                        min_samples_split=5, random_state=42)
+  rf.fit(train_X,train_y)
+  
+  from sklearn.metrics import mean_squared_error as MSE
+  y_pred = rf.predict(test_X)
+  y_pred_train=rf.predict(train_X)
+  # Evaluate the test set RMSE
+  rmse_test = MSE(test_y, y_pred)**(1/2)
+  rmse_train = MSE(train_y, y_pred_train)**(1/2)
+  # Print the test set RMSE
+  print('Test set RMSE of rf: {:.3f}'.format(rmse_test))
+  print('Train set RMSE of rf: {:.3f}'.format(rmse_train))
+  
+  from sklearn.model_selection import cross_val_score
+  # Compute the array containing the 10-folds CV MSEs
+  MSE_CV_scores = - cross_val_score(rf, train_X, train_y, cv=10, 
+                                    scoring='neg_mean_squared_error', 
+                                    n_jobs=-1) 
+  # Compute the 10-folds CV RMSE
+  RMSE_CV = (MSE_CV_scores.mean())**(1/2)
+  # Print RMSE_CV
+  print('CV RMSE: {:.2f}'.format(RMSE_CV))
+  
+  y_pred_rf = rf.predict(test_X)
+  rmse_rf = np.sqrt(mean_squared_error(test_y, y_pred_rf))
+  print('RMSE (Random Forest): ', rmse_rf)
+  ```
+  
+  </details>
 
-from sklearn.metrics import mean_squared_error as MSE
-y_pred = rf.predict(test_X)
-y_pred_train=rf.predict(train_X)
-# Evaluate the test set RMSE
-rmse_test = MSE(test_y, y_pred)**(1/2)
-rmse_train = MSE(train_y, y_pred_train)**(1/2)
-# Print the test set RMSE
-print('Test set RMSE of rf: {:.3f}'.format(rmse_test))
-print('Train set RMSE of rf: {:.3f}'.format(rmse_train))
+  <details>
+  <summary><strong>Bagging Classifier</strong></summary>
+  <br>
 
-from sklearn.model_selection import cross_val_score
-# Compute the array containing the 10-folds CV MSEs
-MSE_CV_scores = - cross_val_score(rf, train_X, train_y, cv=10, 
-                                  scoring='neg_mean_squared_error', 
-                                  n_jobs=-1) 
-# Compute the 10-folds CV RMSE
-RMSE_CV = (MSE_CV_scores.mean())**(1/2)
-# Print RMSE_CV
-print('CV RMSE: {:.2f}'.format(RMSE_CV))
+  ```
+  from sklearn.ensemble import BaggingClassifier
+  from sklearn.tree import DecisionTreeClassifier
+  from sklearn.metrics import accuracy_score
+  from sklearn.model_selection import train_test_split
+  # Set seed for reproducibility
+  SEED = 1
+  # Split data into train and test
+  X_train, X_test, y_train, y_test = \
+  train_test_split(X, y,
+  test_size=0.2,
+  stratify=y,
+  random_state=SEED)
 
-y_pred_rf = rf.predict(test_X)
-rmse_rf = np.sqrt(mean_squared_error(test_y, y_pred_rf))
-print('RMSE (Random Forest): ', rmse_rf)
-```
+  # Hyperparameter Turning
+  # Insert here for decision tree classifier
+
+  # Instantiate a classification-tree 'dt'. Can use tuning.
+  dt = DecisionTreeClassifier(max_depth=4, min_samples_leaf=0.16,
+  random_state=SEED)
+  # Instantiate a BaggingClassifier 'bc'
+  bc = BaggingClassifier(base_estimator=dt, n_estimators=300,
+  n_jobs=-1)
+  # Fit 'bc' to the training set
+  bc.fit(X_train, y_train)
+  # Predict test set labels
+  y_pred = bc.predict(X_test)
+  # Evaluate and print test-set accuracy
+  accuracy = accuracy_score(y_test, y_pred)
+  print('Accuracy of Bagging Classifier: {:.3f}'.format(accuracy))
+  ```
+
+  </details>
+
+  <br>
 
 </details>
+
 
 
 <details>
@@ -186,6 +239,7 @@ https://medium.com/towards-data-science/lime-explain-machine-learning-prediction
 
 ![image](https://github.com/user-attachments/assets/27a67997-93ad-481c-bf12-28ed5d33036a)
 
+<br>
 
 </details>
 
