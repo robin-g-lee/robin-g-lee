@@ -276,7 +276,7 @@ plt.title("Iris Data")
 
 
 <details>
-<summary>SHAP and LIME</summary>
+<summary>Model Interpretability: SHAP and LIME</summary>
 <br>
   
 https://medium.com/cmotions/opening-the-black-box-of-machine-learning-models-shap-vs-lime-for-model-explanation-d7bf545ce15f
