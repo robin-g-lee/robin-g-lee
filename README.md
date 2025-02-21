@@ -2,6 +2,8 @@
 
 Some projects from UCLA and UCSB.
 
+# Some notes for reference:
+
 ## Machine Learning
 
 
