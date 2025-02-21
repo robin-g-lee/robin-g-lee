@@ -82,7 +82,7 @@ while error != 0: # Loop will run till the error becomes zero
 
 <br>
 
-* **Example:**
+* **Examples:**
   
   <details>
   <summary><strong>Random Forest</strong></summary>
