@@ -102,8 +102,26 @@ DBSCAN's advantages:
 
 ### Limitations of CARTs:
 
-![image](https://github.com/user-attachments/assets/1a027e3e-6e19-4c0c-b4f8-0e5b9a5d74bb)
-![image](https://github.com/user-attachments/assets/fa891e83-d007-4516-9696-b03bc32e014e)
+#### Diagnose Variance Problems
+
+* If $\hat{f}$ suffers from **high variance**:
+  </br>CV error of $\hat{f}$ > training set error of $\hat{f}$
+
+* $\hat{f}$ is said to overfit the training set. To remedy overfitting: **decrease**
+    * model complexity,
+    * i.e. decrease max depth, increase min samples per leaf, ...
+    * gather more data, ..
+ 
+#### Diagnose Variance Problems
+
+* If $\hat{f}$ suffers from **high bias**:
+</br>CV error of $\hat{f} \approx$ training set error of $\hat{f}$ >> desired error.
+
+* $\hat{f}$ is said to underfit the training set. To remedy underfitting: **increase**
+    * model complexity
+    * i.e. increase max depth, decrease min samples per leaf, ...
+    * gather more relevant features
+
 
 ### Ensemble Learning:
 
@@ -111,12 +129,12 @@ DBSCAN's advantages:
   * Base estimator: Decision Tree, Logistic Regression, Neural Net, ...
   * Each estimator is trained on a distinct bootstrap sample of the training set
 
-![image](https://github.com/user-attachments/assets/abbb0112-8143-4649-8794-0b57924aa97e)
+    ![image](https://github.com/user-attachments/assets/abbb0112-8143-4649-8794-0b57924aa97e)
 
 * **Boosting:** several models are trained sequentially with each model learning from the errors of its predecessors
   * AdaBoost and Gradient Boosting
     
-![image](https://github.com/user-attachments/assets/6ca714aa-dcec-4947-94a5-220375a57450)
+    ![image](https://github.com/user-attachments/assets/6ca714aa-dcec-4947-94a5-220375a57450)
 
 
 ### Examples:
