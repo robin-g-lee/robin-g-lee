@@ -218,44 +218,11 @@ DBSCAN's advantages:
   2. Train multiple models on the selected data points
   3. Combine the predictions of the models to make an overall prediction
 
-  ```
-  from sklearn.ensemble import BaggingClassifier
-  from sklearn.tree import DecisionTreeClassifier
-  from sklearn.metrics import accuracy_score
-  from sklearn.model_selection import train_test_split
-  # Set seed for reproducibility
-  SEED = 1
-  # Split data into train and test
-  X_train, X_test, y_train, y_test = \
-  train_test_split(X, y,
-  test_size=0.2,
-  stratify=y,
-  random_state=SEED)
-
-  # Hyperparameter Turning
-  # Insert here for decision tree classifier
-
-  # Instantiate a classification-tree 'dt'. Can use tuning.
-  dt = DecisionTreeClassifier(max_depth=4, min_samples_leaf=0.16,
-  random_state=SEED)
-  # Instantiate a BaggingClassifier 'bc'
-  bc = BaggingClassifier(base_estimator=dt, n_estimators=300,
-  n_jobs=-1)
-  # Fit 'bc' to the training set
-  bc.fit(X_train, y_train)
-  # Predict test set labels
-  y_pred = bc.predict(X_test)
-  # Evaluate and print test-set accuracy
-  accuracy = accuracy_score(y_test, y_pred)
-  print('Accuracy of Bagging Classifier: {:.3f}'.format(accuracy))
-  ```
-
   </details>
 
   <br>
 
 </details>
-
 
 
 <details>
