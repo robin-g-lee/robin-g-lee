@@ -178,33 +178,33 @@ plt.title("Iris Data")
   
   **Steps:**
 
-  1. Data Preparation
+  1. **Data Preparation**
   
-  2. Selecting the Root Node
+  2. **Selecting the Root Node**
       * Choose the best feature: Select the feature that provides the most information gain or best splits the data based on a chosen metric like Gini impurity or entropy.
       * Create the root node: This becomes the starting point of the decision tree.
     
-  3. Splitting the Data
+  3. **Splitting the Data**
       * Create child nodes: Based on the chosen feature, split the data into multiple branches representing different possible values of that feature.
       * For each potential split, calculate the information gain or impurity reduction to select the best split point.
     
-  4. Recursive Tree Building:
+  4. **Recursive Tree Building:**
       * For each child node, repeat the steps of selecting the best feature and splitting the data further, creating new child nodes until a stopping criterion is met.
      
-  5. Stopping Criteria:
+  5. **Stopping Criteria:**
       * Maximum depth: Limit the number of levels in the tree to prevent overfitting.
       * Minimum sample size: Stop splitting when a node contains too few data points.
       * Pre-defined accuracy threshold: Stop when the model reaches a desired level of accuracy.
     
-  6. Leaf Nodes:
+  6. **Leaf Nodes:**
       * Assign predictions: At the end of each branch (leaf node), assign a prediction based on the majority class label for classification problems or the average value for regression problems. 
 
   <br>
 
   **Disadvantages of decision trees:**
-  * Overfitting: Decision trees can easily overfit to training data, meaning they perform well on the training set but poorly on new data due to complex decision rules.
-  * Sensitivity to data changes: Small changes in the training data can lead to significantly different decision tree structures.
-  * Greedy approach: The algorithm chooses the best split at each node locally, which may not lead to the globally optimal decision tree
+  * **Overfitting:** Decision trees can easily overfit to training data, meaning they perform well on the training set but poorly on new data due to complex decision rules.
+  * **Sensitivity to data changes:** Small changes in the training data can lead to significantly different decision tree structures.
+  * **Greedy approach:** The algorithm chooses the best split at each node locally, which may not lead to the globally optimal decision tree
   
   ```
   # Hyperparameter Turning
