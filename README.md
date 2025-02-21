@@ -223,8 +223,8 @@ plt.title("Iris Data")
   **Cons:** computational complexity, slower performance compared to simpler models, and lack of interpretability
 
     
-  ![image](https://github.com/user-attachments/assets/c86b06bf-da91-4fd5-a5e3-11c0fb6bde2e)
-  
+  ![image](https://github.com/user-attachments/assets/239845b7-9dce-4df5-9a67-86b0697da2c1)
+
   ```
   from sklearn.ensemble import RandomForestRegressor
   from sklearn.model_selection import RandomizedSearchCV
@@ -286,6 +286,11 @@ plt.title("Iris Data")
   <details>
   <summary><strong>Bagging Classifier</strong></summary>
   <br>
+
+  How bagging works:
+  1. Randomly select data points from a training set with replacement
+  2. Train multiple models on the selected data points
+  3. Combine the predictions of the models to make an overall prediction
 
   ```
   from sklearn.ensemble import BaggingClassifier
