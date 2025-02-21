@@ -158,7 +158,7 @@ plt.title("Iris Data")
   * Base estimator: Decision Tree, Logistic Regression, Neural Net, ...
   * Each estimator is trained on a distinct bootstrap sample of the training set
 
-![image](https://github.com/user-attachments/assets/a348f332-7224-4ce3-8d1a-27f6ae00f35a)
+![image](https://github.com/user-attachments/assets/ccfae10b-f872-4076-a862-4e598c388853)
 
 * **Boosting:** several models are trained sequentially with each model learning from the errors of its predecessors
   * AdaBoost and Gradient Boosting
