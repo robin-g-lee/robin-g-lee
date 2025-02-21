@@ -100,25 +100,25 @@ DBSCAN's advantages:
 
 ### Limitations of CARTs:
 
-#### Diagnose Variance Problems
+* **Diagnose Variance Problems**
 
-* If $\hat{f}$ suffers from **high variance**:
-  </br>CV error of $\hat{f}$ > training set error of $\hat{f}$
+    * If $\hat{f}$ suffers from **high variance**:
+      </br><mark>CV error of $\hat{f}$ > training set error of $\hat{f}$</mark>
 
-* $\hat{f}$ is said to overfit the training set. To remedy overfitting: **decrease**
-    * model complexity,
-    * i.e. decrease max depth, increase min samples per leaf, ...
-    * gather more data, ..
+    * $\hat{f}$ is said to overfit the training set. To remedy overfitting: **decrease**
+        * model complexity,
+        * i.e. decrease max depth, increase min samples per leaf, ...
+        * gather more data, ..
  
-#### Diagnose Variance Problems
+* **Diagnose Variance Problems**
 
-* If $\hat{f}$ suffers from **high bias**:
-</br>CV error of $\hat{f} \approx$ training set error of $\hat{f}$ >> desired error.
+    * If $\hat{f}$ suffers from **high bias**:
+    </br><mark>CV error of $\hat{f} \approx$ training set error of $\hat{f}$ >> desired error.</mark>
 
-* $\hat{f}$ is said to underfit the training set. To remedy underfitting: **increase**
-    * model complexity
-    * i.e. increase max depth, decrease min samples per leaf, ...
-    * gather more relevant features
+    * $\hat{f}$ is said to underfit the training set. To remedy underfitting: **increase**
+        * model complexity
+        * i.e. increase max depth, decrease min samples per leaf, ...
+        * gather more relevant features
 
 
 ### Ensemble Learning:
