@@ -11,9 +11,7 @@ Some projects from UCLA and UCSB.
 
 ## Notes/Reference:
 
-<details>
-<summary>Machine Learning</summary>
-<br>
+
   
 ![68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f313630302f312a5a43654f4542687645564c6d774368377672325256412e706e67](https://github.com/user-attachments/assets/862dd4e0-0abb-4bd2-bd35-793c421e6ca3)
   
@@ -189,11 +187,7 @@ https://medium.com/towards-data-science/lime-explain-machine-learning-prediction
 
 </details>
 
-</details>
 
-<details>
-<summary>Time Series</summary>
-<br>
   
 ## Time Series
 
@@ -210,5 +204,4 @@ https://medium.com/@corredaniel1500/forecasting-volatility-deep-dive-into-arch-g
 
 </details>
 
-</details>
 
