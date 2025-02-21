@@ -85,7 +85,7 @@ DBSCAN's advantages:
 </details>
 
 <details>
-<summary>CART and Ensemble Learning</summary>
+<summary>Classification And Regression Tree (CART) and Ensemble Learning</summary>
 <br>
 
 ### Classification And Regression Tree (CART)
@@ -94,8 +94,8 @@ DBSCAN's advantages:
 
 * Some techniques, often called ensemble methods, construct more than one decision tree:
   
-  * **Boosted trees:** Incrementally building an ensemble by training each new instance to emphasize the training instances previously mis-modeled. A typical example is AdaBoost. These can be used for regression-type and classification-type problems.
-  * **Bagging:** Bootstrap aggregated (or bagged) decision trees, an early ensemble method, builds multiple decision trees by repeatedly resampling training data with replacement, and voting the trees for a consensus prediction.
+  * **Boosted trees:** Incrementally building an ensemble by <mark>training each new instance to emphasize the training instances previously mis-modeled</mark>. A typical example is AdaBoost. These can be used for regression-type and classification-type problems.
+  * **Bagging:** Bootstrap aggregated (or bagged) decision trees, an early ensemble method, <mark>builds multiple decision trees by repeatedly resampling training data with replacement, and voting the trees for a consensus prediction</mark>.
 
 
 ### Limitations of CARTs:
