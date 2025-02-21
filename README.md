@@ -2,13 +2,13 @@
 
 Some projects from UCLA and UCSB.
 
-LightFM is a Python implementation of a number of popular recommendation algorithms for both implicit and explicit feedback.
+`LightFM` is a Python implementation of a number of popular recommendation algorithms for both implicit and explicit feedback.
 
-https://making.lyst.com/lightfm/docs/home.html#quickstart
+> https://making.lyst.com/lightfm/docs/home.html#quickstart
 
-Surprise is a Python scikit for building and analyzing recommender systems that deal with explicit rating data.
+`Surprise` is a Python scikit for building and analyzing recommender systems that deal with explicit rating data.
 
-https://surpriselib.com/
+> https://surpriselib.com/
 
 ## Machine Learning
 
