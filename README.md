@@ -96,8 +96,6 @@ DBSCAN's advantages:
   
   * **Boosted trees:** Incrementally building an ensemble by training each new instance to emphasize the training instances previously mis-modeled. A typical example is AdaBoost. These can be used for regression-type and classification-type problems.
   * **Bagging:** Bootstrap aggregated (or bagged) decision trees, an early ensemble method, builds multiple decision trees by repeatedly resampling training data with replacement, and voting the trees for a consensus prediction.
-  * Random forest classifier is a specific type of bootstrap aggregating
-  * Rotation forest.
 
 
 ### Limitations of CARTs:
