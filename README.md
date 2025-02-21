@@ -30,8 +30,8 @@ Feature Selection: https://www.stratascratch.com/blog/feature-selection-techniqu
 
 ![image](https://github.com/user-attachments/assets/38c91b7d-24ec-40bd-9401-886ee3405259)
 
-**Manually:**
 ```
+## Manually:
 # Euclidean Distance Calculator
 def dist(a, b, ax=1):
     return np.linalg.norm(a - b, axis=ax)
