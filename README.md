@@ -3,6 +3,7 @@
 - Repositories contain old projects while at UCLA and UCSB.
 - See below for notes I use for work/school.
 
+<br>
 
 ## Machine Learning Notes
 
