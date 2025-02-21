@@ -9,7 +9,7 @@ Some projects from UCLA and UCSB.
 * 194cs: Computational Statistics
 
 
-## Notes/Reference:
+## Machine Learning
 
 
   
