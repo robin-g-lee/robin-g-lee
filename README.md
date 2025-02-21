@@ -6,6 +6,10 @@ LightFM is a Python implementation of a number of popular recommendation algorit
 
 https://making.lyst.com/lightfm/docs/home.html#quickstart
 
+Surprise is a Python scikit for building and analyzing recommender systems that deal with explicit rating data.
+
+https://surpriselib.com/
+
 ## Machine Learning
 
   
@@ -13,7 +17,6 @@ https://making.lyst.com/lightfm/docs/home.html#quickstart
   
 ![image](https://github.com/user-attachments/assets/60b58690-3c37-4cdc-8fc1-6de7d2f4716f)
 
-![image](https://github.com/user-attachments/assets/0c955ca0-dfae-47f0-8342-8b8fb9bd0614)
 
 
 
