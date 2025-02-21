@@ -21,8 +21,10 @@ Algorithms: https://github.com/topics/machine-learning-algorithms
 Feature Selection: https://www.stratascratch.com/blog/feature-selection-techniques-in-machine-learning/
 
 <details>
-<summary>K-Means Clustering</summary>
+<summary>Clustering: K-Means, DBSCAN</summary>
 <br>
+
+### K-Means:
 
 ![image](https://github.com/user-attachments/assets/de83aac1-a121-4423-93a4-18579cbfddb4)
 
@@ -54,6 +56,69 @@ while error != 0: # Loop will run till the error becomes zero
         C[i] = np.mean(points, axis=0)
     error = dist(C, C_old, None)
 ```
+
+### DBSCAN:
+
+How DBSCAN works:
+1. Groups points that are close together based on density
+2. Marks points that are alone in low-density regions as outliers
+3. Defines clusters as dense regions separated by regions of lower density 
+
+DBSCAN's advantages:
+1. Doesn't require the number of clusters to be specified beforehand
+2. Can identify clusters of arbitrary shapes
+3. Effective at identifying and removing noise in a data set
+4. Robust to noise
+
+```
+from sklearn.preprocessing import StandardScaler
+import numpy as np
+data = pd.read_csv('Week_2_Data/Iris.csv')
+data = data[['SepalLengthCm','PetalLengthCm','Species']]
+species = data['Species']
+features = data.iloc[:, :-1]
+features = features.values.astype("float32", copy = False)
+
+stscaler = StandardScaler().fit(features)
+features = stscaler.transform(features)
+
+# Elbow plot:
+k=2 # number of columns
+from sklearn.neighbors import NearestNeighbors
+nbrs = NearestNeighbors(n_neighbors=k+1).fit(features) 
+distances, indices = nbrs.kneighbors(features)
+distances = np.sort(distances[:, k])
+
+plt.plot(distances)
+plt.xlabel("Points sorted by distance")
+plt.ylabel("k-NN distance")
+plt.title("k-NN Distance Plot")
+plt.show()
+# min_samples is 12, because first jump (knee) is between 10 and 15
+# eps is 0.5
+
+dbsc = DBSCAN(eps = .5, min_samples = 12).fit(features)
+labels = dbsc.labels_
+core_samples = np.zeros_like(labels, dtype = bool)
+core_samples[dbsc.core_sample_indices_] = True
+data['label'] = labels
+print(data['label'].unique())
+print(data.head())
+
+plt.figure(figsize=(8, 6))
+# Plot the clusters
+colors = ['indianred','#57db5f','#5f57db']
+for label in data['label'].unique():
+    cluster_data = data[data['label'] == label]
+    plt.scatter(cluster_data['SepalLengthCm'], cluster_data['PetalLengthCm'], 
+                label=f'Class {label}',
+                color = colors[label % len(colors)],
+               s = 150)
+plt.legend()
+plt.title("Iris Data")
+```
+
+
 <br>
 
 </details>
@@ -62,7 +127,7 @@ while error != 0: # Loop will run till the error becomes zero
 <summary>CART and Ensemble Learning</summary>
 <br>
 
-**Classification And Regression Tree (CART)**
+### Classification And Regression Tree (CART)
 
 * Trees used for regression and trees used for classification have some similarities - but also some differences, such as the procedure used to determine where to split (!)
 
@@ -73,12 +138,12 @@ while error != 0: # Loop will run till the error becomes zero
   * Rotation forest.
 
 
-**Limitations of CARTs:**
+### Limitations of CARTs:
 
 ![image](https://github.com/user-attachments/assets/1a027e3e-6e19-4c0c-b4f8-0e5b9a5d74bb)
 ![image](https://github.com/user-attachments/assets/fa891e83-d007-4516-9696-b03bc32e014e)
 
-**Ensemble Learning:**
+### Ensemble Learning:
 
 * **Bagging:** Bootstrap Aggregation.
   * Base estimator: Decision Tree, Logistic Regression, Neural Net, ...
@@ -217,7 +282,7 @@ while error != 0: # Loop will run till the error becomes zero
   
 https://medium.com/cmotions/opening-the-black-box-of-machine-learning-models-shap-vs-lime-for-model-explanation-d7bf545ce15f
   
-**SHAP: SHapley Additive exPlanations**
+### SHAP: SHapley Additive exPlanations
 
 This method aims to explain the prediction of an instance/observation by computing the contribution of each feature to the prediction. Uses game theory to explain a model by considering each feature as a player. SHAP values are relative to the average predicted value of the sample.
 
@@ -227,7 +292,7 @@ Supervised Clustering: How to Use SHAP Values for Better Cluster Analysis:
 
 https://www.aidancooper.co.uk/supervised-clustering-shap-values/#:~:text=Clustering%20the%202D%20Embedding%20of,we%20elect%20to%20use%20DBSCAN.&text=As%20expected%2C%20this%20identifies%20the,discerned%20visually%20(Figure%205)
 
-**LIME: Local Interpretable Model-Agnostic Explanations**
+### LIME: Local Interpretable Model-Agnostic Explanations
 
 Approximates a complex model and transfers it to a local interpretable model. LIME generates a perturbed dataset to fit an explainable model.
 
@@ -245,7 +310,7 @@ https://marcotcr.github.io/lime/tutorials/Tutorial%20-%20continuous%20and%20cate
 
 https://medium.com/towards-data-science/lime-explain-machine-learning-predictions-af8f18189bfe
 
-**Comparison**
+### Comparison
 
 ![image](https://github.com/user-attachments/assets/02449983-b8c3-4296-a71f-d0209d1dbf34)
 
