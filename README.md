@@ -46,6 +46,13 @@ while error != 0: # Loop will run till the error becomes zero
 
 </details>
 
+<details>
+<summary>Ensemble Learning</summary>
+<br>
+
+![image](https://github.com/user-attachments/assets/a348f332-7224-4ce3-8d1a-27f6ae00f35a)
+
+</details>
 
 <details>
 <summary>Random Forest</summary>
