@@ -156,6 +156,17 @@ Approximates a complex model and transfers it to a local interpretable model. LI
 
 https://marcotcr.github.io/lime/tutorials/Tutorial%20-%20continuous%20and%20categorical%20features.html
 
+|  Step  |   Description                                                                       |
+|:-------|:------------------------------------------------------------------------------------|
+|Let     | Let’s say we want to know why the model predicted that someone earns more than $50K |
+|Change  | Change the Example a Little Bit</br> LIME makes small changes to data (increasing age, changing job, or reducing education level).</br> It asks the model, “What happens now? |
+|Find Out| Find Out Which Changes Matter</br> If changing job causes the prediction to flip (now the model says they earns less), then job is very important!</br> If changing age doesn’t affect the prediction much, then age is not very important |
+|Make    | Make a Simple Explanation</br> LIME builds a small, simple model (like drawing a straight line) to explain what’s happening just around person's case.</br> It tells you which features (age, job, education, etc.) were the most important for this one prediction |
+| LIME   | LIME only explains one example at a time (not the whole model).</br> LIME makes fake, small changes to see what affects the decision.</br> LIME creates a simple explanation (even if the original model is very complex).|
+
+![image](https://github.com/user-attachments/assets/535c9217-b17e-48e5-a8ce-d6b7e95b057c)
+
+https://medium.com/towards-data-science/lime-explain-machine-learning-predictions-af8f18189bfe
 
 **Comparison**
 
