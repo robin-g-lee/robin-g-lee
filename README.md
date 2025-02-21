@@ -9,7 +9,8 @@ Some projects from UCLA and UCSB.
   
 ![image](https://github.com/user-attachments/assets/60b58690-3c37-4cdc-8fc1-6de7d2f4716f)
 
-![image](https://github.com/user-attachments/assets/4b78cc45-064e-4526-861a-81bb6f7f4c9d)
+![image](https://github.com/user-attachments/assets/0c955ca0-dfae-47f0-8342-8b8fb9bd0614)
+
 
 
 
