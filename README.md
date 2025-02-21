@@ -1,6 +1,7 @@
-# Statistics and Data Science Projects
+# Projects and Notes
 
-Some projects from UCLA and UCSB.
+- Repositories contain old projects while at UCLA and UCSB.
+- See below for notes I use for work/school.
 
 
 ## Machine Learning Notes
