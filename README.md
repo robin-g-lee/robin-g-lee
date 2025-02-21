@@ -2,6 +2,15 @@
 
 Some projects from UCLA and UCSB.
 
+
+## Machine Learning Notes
+
+Algorithms: https://github.com/topics/machine-learning-algorithms
+
+Feature Selection: https://www.stratascratch.com/blog/feature-selection-techniques-in-machine-learning/
+
+![image](https://github.com/user-attachments/assets/6c33f351-39d1-4f7f-a06a-923725c028de)
+
 `LightFM` is a Python implementation of a number of popular recommendation algorithms for both implicit and explicit feedback.
 
 > https://making.lyst.com/lightfm/docs/home.html#quickstart
@@ -9,14 +18,6 @@ Some projects from UCLA and UCSB.
 `Surprise` is a Python scikit for building and analyzing recommender systems that deal with explicit rating data.
 
 > https://surpriselib.com/
-
-## Machine Learning
-
-Algorithms: https://github.com/topics/machine-learning-algorithms
-
-Feature Selection: https://www.stratascratch.com/blog/feature-selection-techniques-in-machine-learning/
-
-![image](https://github.com/user-attachments/assets/6c33f351-39d1-4f7f-a06a-923725c028de)
 
 <details>
 <summary>Clustering: K-Means, DBSCAN</summary>
@@ -320,7 +321,7 @@ https://medium.com/towards-data-science/lime-explain-machine-learning-prediction
 
 
   
-## Time Series
+## Time Series Notes
 
 ![image](https://github.com/user-attachments/assets/56b8612c-711f-4224-a9db-847996f5e3c4)
 
