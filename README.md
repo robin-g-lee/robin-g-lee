@@ -16,7 +16,7 @@ Algorithms: https://github.com/topics/machine-learning-algorithms
 
 Feature Selection: https://www.stratascratch.com/blog/feature-selection-techniques-in-machine-learning/
 
-![image](https://github.com/user-attachments/assets/a0ddcec6-e059-4ae7-861e-1a8bfdb759d5)
+![image](https://github.com/user-attachments/assets/d3d29763-da77-4a32-abd3-9897e66f259f)
 
 <details>
 <summary>Clustering: K-Means, DBSCAN</summary>
