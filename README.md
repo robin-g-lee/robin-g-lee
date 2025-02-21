@@ -9,6 +9,8 @@ Some projects from UCLA and UCSB.
   
 ![image](https://github.com/user-attachments/assets/60b58690-3c37-4cdc-8fc1-6de7d2f4716f)
 
+Feature Selection: https://www.stratascratch.com/blog/feature-selection-techniques-in-machine-learning/
+
 <details>
 <summary>K-Means Clustering</summary>
 <br>
