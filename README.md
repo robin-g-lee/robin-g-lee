@@ -2,6 +2,10 @@
 
 Some projects from UCLA and UCSB.
 
+LightFM is a Python implementation of a number of popular recommendation algorithms for both implicit and explicit feedback.
+
+https://making.lyst.com/lightfm/docs/home.html#quickstart
+
 ## Machine Learning
 
   
