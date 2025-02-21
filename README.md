@@ -168,7 +168,115 @@ plt.title("Iris Data")
 ![image](https://github.com/user-attachments/assets/6ca714aa-dcec-4947-94a5-220375a57450)
 
 
-### Examples of Ensemble:
+### Examples:
+
+* CART:
+
+  <details>
+  <summary><strong>Decision Tree Regressor</strong></summary>
+  <br>
+  
+  **Steps:**
+
+  1. Data Preparation
+  
+  2. Selecting the Root Node
+      * Choose the best feature: Select the feature that provides the most information gain or best splits the data based on a chosen metric like Gini impurity or entropy.
+      * Create the root node: This becomes the starting point of the decision tree.
+    
+  3. Splitting the Data
+      * Create child nodes: Based on the chosen feature, split the data into multiple branches representing different possible values of that feature.
+      * For each potential split, calculate the information gain or impurity reduction to select the best split point.
+    
+  4. Recursive Tree Building:
+      * For each child node, repeat the steps of selecting the best feature and splitting the data further, creating new child nodes until a stopping criterion is met.
+     
+  5. Stopping Criteria:
+      * Maximum depth: Limit the number of levels in the tree to prevent overfitting.
+      * Minimum sample size: Stop splitting when a node contains too few data points.
+      * Pre-defined accuracy threshold: Stop when the model reaches a desired level of accuracy.
+    
+  6. Leaf Nodes:
+      * Assign predictions: At the end of each branch (leaf node), assign a prediction based on the majority class label for classification problems or the average value for regression problems. 
+
+  <br>
+
+  **Disadvantages of decision trees:**
+  * Overfitting: Decision trees can easily overfit to training data, meaning they perform well on the training set but poorly on new data due to complex decision rules.
+  * Sensitivity to data changes: Small changes in the training data can lead to significantly different decision tree structures.
+  * Greedy approach: The algorithm chooses the best split at each node locally, which may not lead to the globally optimal decision tree
+  
+  ```
+  # Hyperparameter Turning
+  from scipy.stats import randint
+  from sklearn.model_selection import RandomizedSearchCV
+  from sklearn.tree import DecisionTreeRegressor
+  param_dist = {
+      'max_depth': randint(1, 20),
+      'min_samples_split': randint(2, 20),
+      'min_samples_leaf': randint(1, 20),
+      'max_features': ['auto', 'sqrt', 'log2', None],
+      'criterion': ['mse', 'friedman_mse', 'mae']
+  }
+  random_search = RandomizedSearchCV(
+      DecisionTreeRegressor(),
+      param_distributions=param_dist,
+      n_iter=100,
+      cv=5,
+      verbose=1,
+      random_state=42,
+      n_jobs=-1
+  )
+  random_search.fit(train_X, train_y)
+    
+  # Get the best parameters
+  print("Best hyperparameters found: ", random_search.best_params_)
+
+  # Train the model
+  decision_tree = DecisionTreeRegressor(max_depth=18,
+                                      min_samples_leaf=15,
+                                      min_samples_split=3,
+                                      random_state=3,
+                                     criterion='friedman_mse')
+  decision_tree.fit(train_X, train_y)
+
+  ## Test overfitting or underfitting
+  from sklearn.metrics import mean_squared_error as MSE
+  # Compute y_pred
+  y_pred = decision_tree.predict(test_X)
+  # Compute mse_dt
+  mse_dt = MSE(test_y, y_pred)
+  # Compute rmse_dt
+  rmse_dt = mse_dt**(1/2)
+  # Print rmse_dt
+  print("Test set RMSE of decision_tree: {:.4f}".format(rmse_dt))
+
+  from sklearn.model_selection import cross_val_score
+  # Compute the array containing the 10-folds CV MSEs
+  MSE_CV_scores = - cross_val_score(decision_tree, train_X, train_y, cv=10, 
+                                  scoring='neg_mean_squared_error', 
+                                  n_jobs=-1) 
+  # Compute the 10-folds CV RMSE
+  RMSE_CV = (MSE_CV_scores.mean())**(1/2)
+  # Print RMSE_CV
+  print('CV RMSE: {:.2f}'.format(RMSE_CV))
+
+  # Import mean_squared_error from sklearn.metrics as MSE
+  from sklearn.metrics import mean_squared_error as MSE
+  # Fit dt to the training set
+  decision_tree.fit(train_X, train_y)
+  # Predict the labels of the training set
+  y_pred_train = decision_tree.predict(train_X)
+  # Evaluate the training set RMSE of dt
+  RMSE_train = (MSE(train_y, y_pred_train))**(1/2)
+  # Print RMSE_train
+  print('Train RMSE: {:.2f}'.format(RMSE_train))
+
+  # See if Over or Under Fitting
+  ```
+
+
+  </details>
 
 * Boosting:
 
