@@ -112,9 +112,18 @@ print('RMSE (Random Forest): ', rmse_rf)
 </details>
 
 
+<details>
+<summary>LIME</summary>
+<br>
+
+![image](https://github.com/user-attachments/assets/eac5046e-794f-4b60-a4bb-9ed79adafea7)
+
+![image](https://github.com/user-attachments/assets/02449983-b8c3-4296-a71f-d0209d1dbf34)
+
+![image](https://github.com/user-attachments/assets/27a67997-93ad-481c-bf12-28ed5d33036a)
 
 
-
+</details>
 
 
 
