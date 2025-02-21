@@ -16,8 +16,7 @@ https://surpriselib.com/
 
 ![image](https://github.com/user-attachments/assets/a0ddcec6-e059-4ae7-861e-1a8bfdb759d5)
 
-https://github.com/topics/machine-learning-algorithms
-
+Algorithms: https://github.com/topics/machine-learning-algorithms
 
 Feature Selection: https://www.stratascratch.com/blog/feature-selection-techniques-in-machine-learning/
 
