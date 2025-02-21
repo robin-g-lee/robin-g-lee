@@ -12,13 +12,11 @@ https://surpriselib.com/
 
 ## Machine Learning
 
-
-
-![image](https://github.com/user-attachments/assets/a0ddcec6-e059-4ae7-861e-1a8bfdb759d5)
-
 Algorithms: https://github.com/topics/machine-learning-algorithms
 
 Feature Selection: https://www.stratascratch.com/blog/feature-selection-techniques-in-machine-learning/
+
+![image](https://github.com/user-attachments/assets/a0ddcec6-e059-4ae7-861e-1a8bfdb759d5)
 
 <details>
 <summary>Clustering: K-Means, DBSCAN</summary>
