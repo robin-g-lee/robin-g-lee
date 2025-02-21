@@ -25,6 +25,15 @@ Feature Selection: https://www.stratascratch.com/blog/feature-selection-techniqu
 
 ### K-Means:
 
+Clustering seeks to find N clusters in a data set and to subsequently identify which data points belong to each cluster. While there are a number of different approaches to clustering, one of the easiest to understand is the k-means algorithm. 
+
+In this algorithm:
+
+1. Pick K random points as cluster centers called centroids.
+2. Assign each point to the nearest cluster by calculating its Euclidean distance to each centroid.
+3. Find a new cluster center by taking the average of the assigned points.
+4. Repeat Step 2 and 3 until none of the cluster assignments change.
+
 ![image](https://github.com/user-attachments/assets/de83aac1-a121-4423-93a4-18579cbfddb4)
 
 ![image](https://github.com/user-attachments/assets/38c91b7d-24ec-40bd-9401-886ee3405259)
