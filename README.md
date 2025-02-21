@@ -156,7 +156,7 @@ plt.title("Iris Data")
 ![image](https://github.com/user-attachments/assets/01023cae-a774-4164-898f-2b0474fc68d2)
 
 
-**Examples:**
+### Examples of Ensemble:
   
 * Bagging:
   
