@@ -7,8 +7,6 @@
 
 ## Machine Learning Notes
 
-Algorithms: https://github.com/topics/machine-learning-algorithms
-
 Feature Selection: https://www.stratascratch.com/blog/feature-selection-techniques-in-machine-learning/
 
 ![image](https://github.com/user-attachments/assets/6c33f351-39d1-4f7f-a06a-923725c028de)
