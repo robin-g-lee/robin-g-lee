@@ -9,6 +9,11 @@ Some projects from UCLA and UCSB.
   
 ![image](https://github.com/user-attachments/assets/60b58690-3c37-4cdc-8fc1-6de7d2f4716f)
 
+![image](https://github.com/user-attachments/assets/4b78cc45-064e-4526-861a-81bb6f7f4c9d)
+
+
+
+
 Feature Selection: https://www.stratascratch.com/blog/feature-selection-techniques-in-machine-learning/
 
 <details>
@@ -79,10 +84,13 @@ while error != 0: # Loop will run till the error becomes zero
 
 * **Boosting:** several models are trained sequentially with each model learning from the errors of its predecessors
   * AdaBoost and Gradient Boosting
+    
+![image](https://github.com/user-attachments/assets/01023cae-a774-4164-898f-2b0474fc68d2)
 
-<br>
 
-* **Examples:**
+**Examples:**
+  
+* Bagging:
   
   <details>
   <summary><strong>Random Forest</strong></summary>
