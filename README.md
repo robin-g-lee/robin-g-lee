@@ -50,6 +50,8 @@ while error != 0: # Loop will run till the error becomes zero
 <summary>Ensemble Learning</summary>
 <br>
 
+![image](https://github.com/user-attachments/assets/7f2ae241-7deb-41a7-b6be-51507b6432f8)
+
 **Limitations of CARTs:**
 
 ![image](https://github.com/user-attachments/assets/1a027e3e-6e19-4c0c-b4f8-0e5b9a5d74bb)
