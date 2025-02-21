@@ -167,18 +167,60 @@ plt.title("Iris Data")
 
 
 ### Examples of Ensemble:
+
+* Boosting:
+
+  <details>
+  <summary><strong>Gradient Boosting Regressor</strong></summary>
+  <br>
+
+  The model’s strength comes from its additive learning process — while each tree focuses on correcting the remaining errors in the ensemble, the sequential combination creates a powerful predictor that progressively reduces the overall
+  prediction error by focusing on the parts of the problem where the model still struggles.
+
+  1. Initialize Model: Start with a simple prediction, typically the mean of target values.
+  2. Iterative Learning: For a set number of iterations, compute the residuals, train a decision tree to predict these residuals, and add the new tree’s predictions (scaled by the learning rate) to the running total.
+  3. Build Trees on Residuals: Each new tree focuses on the remaining errors from all previous iterations.
+  4. Final Prediction: Sum up all tree contributions (scaled by the learning rate) and the initial prediction.
+
+  <br>
+  
+  **Risk of Overfitting:** The use of deeper trees and the sequential building process can cause the model to fit the training data too closely, which may reduce its performance on new data. This requires careful tuning of tree depth, learning rate, and the number of trees.
+    
+  **Sensitive to Settings:** The effectiveness of Gradient Boosting heavily depends on finding the right combination of learning rate, tree depth, and number of trees, which can be more complex and time-consuming than tuning simpler algorithms.
+
+  ![image](https://github.com/user-attachments/assets/e416e064-838e-44bb-8e09-b0cd36b1bfc6)
+
+  https://medium.com/towards-data-science/gradient-boosting-regressor-explained-a-visual-guide-with-code-examples-c098d1ae425c
+  
+  ```
+  gbr = GradientBoostingRegressor(n_estimators=100, max_depth=25,
+                                      min_samples_leaf=10,
+                                      min_samples_split=5, random_state=42)
+  gbr.fit(train_X,train_y)
+
+  y_pred_gbr = gbr.predict(test_X)
+  rmse_gbr = np.sqrt(mean_squared_error(test_y, y_pred_gbr))
+  print('RMSE (Gradient Boosting): ', rmse_gbr)
+  ```
+
+  </details>
   
 * Bagging:
   
   <details>
-  <summary><strong>Random Forest</strong></summary>
+  <summary><strong>Random Forest Regressor</strong></summary>
   <br>
 
-  Why Random Forests Work: Variance reduction: the trees are more independent because of the combination of bootstrap samples and random draws of predictors.
+  Why Random Forests Work:
+
+  **Variance reduction:** the trees are more independent because of the combination of bootstrap samples and random draws of predictors.
   It is apparent that random forests are a form of bagging, and the averaging over trees can substantially reduce instability that might otherwise result.
   Moreover, by working with a random sample of predictors at each possible split, the fitted values across trees are more independent.
   Consequently, the gains from averaging over a large number of trees (variance reduction) can be more dramatic.
-  Bias reduction: a very large number of predictors can be considered, and local feature predictors can play a role in tree construction.
+
+  **Bias reduction:** a very large number of predictors can be considered, and local feature predictors can play a role in tree construction.
+
+  **Cons:** computational complexity, slower performance compared to simpler models, and lack of interpretability
 
     
   ![image](https://github.com/user-attachments/assets/c86b06bf-da91-4fd5-a5e3-11c0fb6bde2e)
