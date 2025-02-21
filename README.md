@@ -163,7 +163,7 @@ plt.title("Iris Data")
 * **Boosting:** several models are trained sequentially with each model learning from the errors of its predecessors
   * AdaBoost and Gradient Boosting
     
-![image](https://github.com/user-attachments/assets/01023cae-a774-4164-898f-2b0474fc68d2)
+![image](https://github.com/user-attachments/assets/6ca714aa-dcec-4947-94a5-220375a57450)
 
 
 ### Examples of Ensemble:
