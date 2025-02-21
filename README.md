@@ -80,55 +80,6 @@ DBSCAN's advantages:
 3. Effective at identifying and removing noise in a data set
 4. Robust to noise
 
-```
-from sklearn.preprocessing import StandardScaler
-import numpy as np
-data = pd.read_csv('Week_2_Data/Iris.csv')
-data = data[['SepalLengthCm','PetalLengthCm','Species']]
-species = data['Species']
-features = data.iloc[:, :-1]
-features = features.values.astype("float32", copy = False)
-
-stscaler = StandardScaler().fit(features)
-features = stscaler.transform(features)
-
-# Elbow plot:
-k=2 # number of columns
-from sklearn.neighbors import NearestNeighbors
-nbrs = NearestNeighbors(n_neighbors=k+1).fit(features) 
-distances, indices = nbrs.kneighbors(features)
-distances = np.sort(distances[:, k])
-
-plt.plot(distances)
-plt.xlabel("Points sorted by distance")
-plt.ylabel("k-NN distance")
-plt.title("k-NN Distance Plot")
-plt.show()
-# min_samples is 12, because first jump (knee) is between 10 and 15
-# eps is 0.5
-
-dbsc = DBSCAN(eps = .5, min_samples = 12).fit(features)
-labels = dbsc.labels_
-core_samples = np.zeros_like(labels, dtype = bool)
-core_samples[dbsc.core_sample_indices_] = True
-data['label'] = labels
-print(data['label'].unique())
-print(data.head())
-
-plt.figure(figsize=(8, 6))
-# Plot the clusters
-colors = ['indianred','#57db5f','#5f57db']
-for label in data['label'].unique():
-    cluster_data = data[data['label'] == label]
-    plt.scatter(cluster_data['SepalLengthCm'], cluster_data['PetalLengthCm'], 
-                label=f'Class {label}',
-                color = colors[label % len(colors)],
-               s = 150)
-plt.legend()
-plt.title("Iris Data")
-```
-
-
 <br>
 
 </details>
@@ -205,76 +156,6 @@ plt.title("Iris Data")
   * **Overfitting:** Decision trees can easily overfit to training data, meaning they perform well on the training set but poorly on new data due to complex decision rules.
   * **Sensitivity to data changes:** Small changes in the training data can lead to significantly different decision tree structures.
   * **Greedy approach:** The algorithm chooses the best split at each node locally, which may not lead to the globally optimal decision tree
-  
-  ```
-  # Hyperparameter Turning
-  from scipy.stats import randint
-  from sklearn.model_selection import RandomizedSearchCV
-  from sklearn.tree import DecisionTreeRegressor
-  param_dist = {
-      'max_depth': randint(1, 20),
-      'min_samples_split': randint(2, 20),
-      'min_samples_leaf': randint(1, 20),
-      'max_features': ['auto', 'sqrt', 'log2', None],
-      'criterion': ['mse', 'friedman_mse', 'mae']
-  }
-  random_search = RandomizedSearchCV(
-      DecisionTreeRegressor(),
-      param_distributions=param_dist,
-      n_iter=100,
-      cv=5,
-      verbose=1,
-      random_state=42,
-      n_jobs=-1
-  )
-  random_search.fit(train_X, train_y)
-    
-  # Get the best parameters
-  print("Best hyperparameters found: ", random_search.best_params_)
-
-  # Train the model
-  decision_tree = DecisionTreeRegressor(max_depth=18,
-                                      min_samples_leaf=15,
-                                      min_samples_split=3,
-                                      random_state=3,
-                                     criterion='friedman_mse')
-  decision_tree.fit(train_X, train_y)
-
-  ## Test overfitting or underfitting
-  from sklearn.metrics import mean_squared_error as MSE
-  # Compute y_pred
-  y_pred = decision_tree.predict(test_X)
-  # Compute mse_dt
-  mse_dt = MSE(test_y, y_pred)
-  # Compute rmse_dt
-  rmse_dt = mse_dt**(1/2)
-  # Print rmse_dt
-  print("Test set RMSE of decision_tree: {:.4f}".format(rmse_dt))
-
-  from sklearn.model_selection import cross_val_score
-  # Compute the array containing the 10-folds CV MSEs
-  MSE_CV_scores = - cross_val_score(decision_tree, train_X, train_y, cv=10, 
-                                  scoring='neg_mean_squared_error', 
-                                  n_jobs=-1) 
-  # Compute the 10-folds CV RMSE
-  RMSE_CV = (MSE_CV_scores.mean())**(1/2)
-  # Print RMSE_CV
-  print('CV RMSE: {:.2f}'.format(RMSE_CV))
-
-  # Import mean_squared_error from sklearn.metrics as MSE
-  from sklearn.metrics import mean_squared_error as MSE
-  # Fit dt to the training set
-  decision_tree.fit(train_X, train_y)
-  # Predict the labels of the training set
-  y_pred_train = decision_tree.predict(train_X)
-  # Evaluate the training set RMSE of dt
-  RMSE_train = (MSE(train_y, y_pred_train))**(1/2)
-  # Print RMSE_train
-  print('Train RMSE: {:.2f}'.format(RMSE_train))
-
-  # See if Over or Under Fitting
-  ```
-
 
   </details>
 
@@ -301,17 +182,6 @@ plt.title("Iris Data")
   ![image](https://github.com/user-attachments/assets/e416e064-838e-44bb-8e09-b0cd36b1bfc6)
 
   https://medium.com/towards-data-science/gradient-boosting-regressor-explained-a-visual-guide-with-code-examples-c098d1ae425c
-  
-  ```
-  gbr = GradientBoostingRegressor(n_estimators=100, max_depth=25,
-                                      min_samples_leaf=10,
-                                      min_samples_split=5, random_state=42)
-  gbr.fit(train_X,train_y)
-
-  y_pred_gbr = gbr.predict(test_X)
-  rmse_gbr = np.sqrt(mean_squared_error(test_y, y_pred_gbr))
-  print('RMSE (Gradient Boosting): ', rmse_gbr)
-  ```
 
   </details>
   
@@ -335,61 +205,7 @@ plt.title("Iris Data")
     
   ![image](https://github.com/user-attachments/assets/239845b7-9dce-4df5-9a67-86b0697da2c1)
 
-  ```
-  from sklearn.ensemble import RandomForestRegressor
-  from sklearn.model_selection import RandomizedSearchCV
-  from scipy.stats import randint
-  param_dist = {
-      'n_estimators': randint(100, 1000),
-      'max_depth': randint(1, 20),
-      'min_samples_split': randint(2, 20),
-      'min_samples_leaf': randint(1, 20),
-      'max_features': ['auto', 'sqrt', 'log2', None],
-      'criterion': ['absolute_error', 'poisson', 'friedman_mse', 'squared_error'],
-      'bootstrap': [True, False]
-  }
-  random_search = RandomizedSearchCV(
-      RandomForestRegressor(),
-      param_distributions=param_dist,
-      n_iter=100,
-      cv=5,
-      verbose=1,
-      random_state=42,
-      n_jobs=-1
-  )
-  random_search.fit(train_X, train_y)
-  print("Best hyperparameters found: ", random_search.best_params_)
   
-  from sklearn.ensemble import RandomForestRegressor
-  rf = RandomForestRegressor(n_estimators=100, max_depth=20,
-                                        min_samples_leaf=10,
-                                        min_samples_split=5, random_state=42)
-  rf.fit(train_X,train_y)
-  
-  from sklearn.metrics import mean_squared_error as MSE
-  y_pred = rf.predict(test_X)
-  y_pred_train=rf.predict(train_X)
-  # Evaluate the test set RMSE
-  rmse_test = MSE(test_y, y_pred)**(1/2)
-  rmse_train = MSE(train_y, y_pred_train)**(1/2)
-  # Print the test set RMSE
-  print('Test set RMSE of rf: {:.3f}'.format(rmse_test))
-  print('Train set RMSE of rf: {:.3f}'.format(rmse_train))
-  
-  from sklearn.model_selection import cross_val_score
-  # Compute the array containing the 10-folds CV MSEs
-  MSE_CV_scores = - cross_val_score(rf, train_X, train_y, cv=10, 
-                                    scoring='neg_mean_squared_error', 
-                                    n_jobs=-1) 
-  # Compute the 10-folds CV RMSE
-  RMSE_CV = (MSE_CV_scores.mean())**(1/2)
-  # Print RMSE_CV
-  print('CV RMSE: {:.2f}'.format(RMSE_CV))
-  
-  y_pred_rf = rf.predict(test_X)
-  rmse_rf = np.sqrt(mean_squared_error(test_y, y_pred_rf))
-  print('RMSE (Random Forest): ', rmse_rf)
-  ```
   
   </details>
 
