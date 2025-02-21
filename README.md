@@ -206,18 +206,6 @@ DBSCAN's advantages:
   ![image](https://github.com/user-attachments/assets/239845b7-9dce-4df5-9a67-86b0697da2c1)
 
   
-  
-  </details>
-
-  <details>
-  <summary><strong>Bagging Classifier</strong></summary>
-  <br>
-
-  How bagging works:
-  1. Randomly select data points from a training set with replacement
-  2. Train multiple models on the selected data points
-  3. Combine the predictions of the models to make an overall prediction
-
   </details>
 
   <br>
