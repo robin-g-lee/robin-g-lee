@@ -139,10 +139,22 @@ print('RMSE (Random Forest): ', rmse_rf)
 
 
 <details>
-<summary>LIME</summary>
+<summary>SHAP and LIME</summary>
 <br>
 
-![image](https://github.com/user-attachments/assets/eac5046e-794f-4b60-a4bb-9ed79adafea7)
+**SHAP: SHapley Additive exPlanations**
+
+This method aims to explain the prediction of an instance/observation by computing the contribution of each feature to the prediction.
+
+https://shap.readthedocs.io/en/latest/example_notebooks/api_examples/plots/bar.html
+
+**LIME: Local Interpretable Model-Agnostic Explanations**
+
+https://marcotcr.github.io/lime/tutorials/Tutorial%20-%20continuous%20and%20categorical%20features.html
+
+![image](https://github.com/user-attachments/assets/4bdf53fa-f6a0-4861-aeef-80870f56da8b)
+
+**Comparison**
 
 ![image](https://github.com/user-attachments/assets/02449983-b8c3-4296-a71f-d0209d1dbf34)
 
